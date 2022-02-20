@@ -86,8 +86,7 @@ namespace Questionnaire.View
             MessageBox.Show("Введите имя и фамилию пользователя");
             var f = new FormSaerchUser();
             f.Show();
-            DbContext db = DbContext.getInstance();
-            //db.Load();
+           
         }
     }
 }

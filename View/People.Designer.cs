@@ -163,9 +163,9 @@
             // 
             this.buttonSearch.Location = new System.Drawing.Point(192, 38);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(162, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(248, 23);
             this.buttonSearch.TabIndex = 2;
-            this.buttonSearch.Text = "Найти  пользователя";
+            this.buttonSearch.Text = "Редактировать  пользователя";
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
@@ -192,7 +192,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "People";
             this.Text = "People";
-            
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
