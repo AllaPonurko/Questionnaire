@@ -81,12 +81,48 @@ namespace Questionnaire.View
         }
 
         
-        private void buttonSearch_Click(object sender, EventArgs e)
+        private void buttonEdit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Введите имя и фамилию пользователя");
-            var f = new FormSaerchUser();
-            f.Show();
-           
+            if(listPeople!=null)
+            try {
+                var p = new Person();
+                p=(Person)listPeople.SelectedItem;
+                var f = new PersonForm(p);
+                f.Show();
+                }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+                    }
+
         }
+
+        private void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            Person p = new Person { Id = Guid.NewGuid() };
+            var f = new PersonForm(p);
+
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                _db.People.Add(p);
+                LoadPeopleToListBox();
+            }
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            var f = new OpenFileDialog();
+            f.Filter = "db Files (*.xml) |*.xml";
+            f.FileName = fileName;
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                fileName = f.FileName;
+                _db.Load(fileName);
+                LoadPeopleToListBox();
+            }
+
+        }
+
+        
     }
 }

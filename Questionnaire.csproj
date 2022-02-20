@@ -56,12 +56,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\FormSaerchUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormSaerchUser.Designer.cs">
-      <DependentUpon>FormSaerchUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\People.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +79,6 @@
     </Compile>
     <EmbeddedResource Include="Questionnaire.resx">
       <DependentUpon>Questionnaire.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FormSaerchUser.resx">
-      <DependentUpon>FormSaerchUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\People.resx">
       <DependentUpon>People.cs</DependentUpon>

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(People));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.MessageForUser = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.открытьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.сохранитьToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -41,14 +42,18 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.listPeople = new System.Windows.Forms.ListBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
-            this.toolStrip1.SuspendLayout();
+            this.btnCreateUser = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ShowAllUsers = new System.Windows.Forms.ToolTip(this.components);
+            this.MessageForUser.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // MessageForUser
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MessageForUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.открытьToolStripButton,
             this.сохранитьToolStripButton,
@@ -59,11 +64,11 @@
             this.вставкаToolStripButton,
             this.toolStripSeparator1,
             this.справкаToolStripButton});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(705, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.MessageForUser.Location = new System.Drawing.Point(0, 0);
+            this.MessageForUser.Name = "MessageForUser";
+            this.MessageForUser.Size = new System.Drawing.Size(705, 25);
+            this.MessageForUser.TabIndex = 0;
+            this.MessageForUser.Text = "Выберите пользователя из списка";
             // 
             // newToolStripButton
             // 
@@ -159,15 +164,17 @@
             this.listPeople.TabIndex = 1;
             this.listPeople.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listPeople_MouseDoubleClick);
             // 
-            // buttonSearch
+            // buttonEdit
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(192, 38);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(248, 23);
-            this.buttonSearch.TabIndex = 2;
-            this.buttonSearch.Text = "Редактировать  пользователя";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonEdit.Location = new System.Drawing.Point(192, 67);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(248, 23);
+            this.buttonEdit.TabIndex = 2;
+            this.buttonEdit.Text = "Редактировать  пользователя";
+            this.toolTip1.SetToolTip(this.buttonEdit, "Выберите пользователя из списка");
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            
             // 
             // Exit
             // 
@@ -181,19 +188,42 @@
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // btnCreateUser
+            // 
+            this.btnCreateUser.Location = new System.Drawing.Point(192, 38);
+            this.btnCreateUser.Name = "btnCreateUser";
+            this.btnCreateUser.Size = new System.Drawing.Size(248, 23);
+            this.btnCreateUser.TabIndex = 4;
+            this.btnCreateUser.Text = "Создать пользователя";
+            this.btnCreateUser.UseVisualStyleBackColor = true;
+            this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(192, 107);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(248, 23);
+            this.btnShowAll.TabIndex = 5;
+            this.btnShowAll.Text = "Показать всех пользователей";
+            this.ShowAllUsers.SetToolTip(this.btnShowAll, "Выберите файл Users.xml при нажатии этой кнопки");
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
             // People
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 335);
+            this.Controls.Add(this.btnShowAll);
+            this.Controls.Add(this.btnCreateUser);
             this.Controls.Add(this.Exit);
-            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.listPeople);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.MessageForUser);
             this.Name = "People";
             this.Text = "People";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.MessageForUser.ResumeLayout(false);
+            this.MessageForUser.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +231,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip MessageForUser;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton открытьToolStripButton;
         private System.Windows.Forms.ToolStripButton сохранитьToolStripButton;
@@ -214,6 +244,10 @@
         private System.Windows.Forms.ToolStripButton справкаToolStripButton;
         private System.Windows.Forms.ListBox listPeople;
         private System.Windows.Forms.Button Exit;
-        public System.Windows.Forms.Button buttonSearch;
+        public System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button btnCreateUser;
+        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip ShowAllUsers;
     }
 }
